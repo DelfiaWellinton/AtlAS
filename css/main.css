@@ -10,8 +10,8 @@
   --text-color-secondary: #aaaaaa;
   
   /* Cores de destaque para o tema escuro */
-  --highlight-bg: #b4fb4f; /* Verde limão com alta saturação para fundo */
-  --highlight-text: #000000; /* Texto preto para contrastar com o verde limão */
+  --highlight-bg: #b4fb4f; /* Verde limão */
+  --highlight-text: #000000; /* Texto preto para contrastar */
 
   /* Cores de ícones */
   --icon-color: #ffffff;
@@ -39,9 +39,23 @@ a {
   color: var(--text-color-primary);
 }
 
-/* Estilo para o Logo */
+/* Estilo para o Logo e Nome do Projeto */
+.logo a.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
 .logo img {
   width: auto;
-  height: 40px; /* Ajuste a altura conforme a necessidade */
+  height: 40px;
   display: block;
+}
+
+.logo .project-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--highlight-bg);
+  margin: 0;
 }

@@ -27,4 +27,8 @@
   height: 24px;
   margin-right: 1rem;
   fill: var(--icon-color);
+  stroke: var(--icon-color); /* Certifique-se que o stroke também é ajustado */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

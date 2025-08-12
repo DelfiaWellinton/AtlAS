@@ -1,61 +1,63 @@
 /* main.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
-  /* Cores */
-  --background-color: #1a1a1a;
-  --surface-color: #2b2b2b;
-  --text-color-primary: #ffffff;
-  --text-color-secondary: #aaaaaa;
-  
-  /* Cores de destaque para o tema escuro */
-  --highlight-bg: #b4fb4f; /* Verde limão */
-  --highlight-text: #000000; /* Texto preto para contrastar */
+    /* Cores */
+    --background-color: #0d1117;
+    --surface-color: #161b22;
+    --border-color: #30363d;
+    
+    --text-color-primary: #c9d1d9;
+    --text-color-secondary: #8b949e;
+    
+    --highlight-bg: #b4fb4f;
+    --highlight-text: #0d1117;
 
-  /* Cores de ícones */
-  --icon-color: #ffffff;
-  --icon-hover-color: var(--highlight-bg);
+    /* Fontes */
+    --font-family-sans: 'Roboto', sans-serif;
+    --font-size-base: 1rem;
+    
+    /* Cantos Arredondados */
+    --border-radius: 8px;
+}
 
-  /* Fontes */
-  --font-family-sans: 'Roboto', sans-serif;
-  --font-size-base: 1rem;
-  
-  /* Cantos Arredondados */
-  --border-radius: 8px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: var(--font-family-sans);
-  background-color: var(--background-color);
-  color: var(--text-color-primary);
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    font-family: var(--font-family-sans);
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+    height: 100vh;
+    overflow: hidden;
 }
 
 a {
-  text-decoration: none;
-  color: var(--text-color-primary);
+    text-decoration: none;
 }
 
 /* Estilo para o Logo e Nome do Projeto */
-.logo a.logo-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
+.logo {
+    text-align: center;
+    padding: 0 20px 30px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
 }
 
-.logo img {
-  width: auto;
-  height: 40px;
-  display: block;
+.logo a.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .logo .project-name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--highlight-bg);
-  margin: 0;
+    color: var(--highlight-bg);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
 }

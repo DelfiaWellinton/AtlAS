@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sidebarMenu = document.getElementById('sidebar-menu');
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
 
     // Dicionário de ícones Font Awesome
     const icons = {
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         principalGroup.className = 'nav-group';
         principalGroup.innerHTML = `<div class="nav-group-title">Principal</div>`;
         const dashboardLink = document.createElement('a');
-        dashboardLink.className = `nav-item ${currentPath.endsWith('index.html') ? 'active' : ''}`;
+        dashboardLink.className = `nav-item ${currentPath.endsWith('index.html') || currentPath.endsWith('/') ? 'active' : ''}`;
         dashboardLink.href = `${basePath}index.html`;
         dashboardLink.innerHTML = `
             <i class="${icons['Home']}"></i>
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gestaoGroup.className = 'nav-group';
         gestaoGroup.innerHTML = `<div class="nav-group-title">Gestão</div>`;
         menuElement.appendChild(gestaoGroup);
-        // Exemplo de links para o grupo Gestão
+        // Exemplo de links para o grupo Gestão (ajustado para a estética do protótipo)
         const produtosLink = document.createElement('a');
         produtosLink.className = `nav-item ${currentPath.endsWith('produtos.html') ? 'active' : ''}`;
         produtosLink.href = `${basePath}pg/produtos.html`;
@@ -54,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         posicoesLink.innerHTML = `<i class="fas fa-map-marker-alt"></i><span>Posições</span>`;
         gestaoGroup.appendChild(posicoesLink);
         
-
         // Outras categorias do data.js
         appData.categories.forEach(category => {
             const group = document.createElement('div');
@@ -83,4 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderNavMenu(sidebarMenu);
+
+    // Funcionalidade do botão de menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    }
 });

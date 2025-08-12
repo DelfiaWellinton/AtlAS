@@ -144,10 +144,26 @@ a {
     align-items: center;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .header h2 {
     color: #f0f6fc;
     font-size: 24px;
     font-weight: 500;
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #c9d1d9;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
 }
 
 .user-info {
@@ -176,60 +192,9 @@ a {
     background-color: var(--background-color);
 }
 
-/* Dashboard Cards */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
+/* Dashboard Cards (mantido no arquivo de dashboard) */
 
-.card {
-    background: linear-gradient(135deg, var(--surface-color) 0%, #1c2128 100%);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 20px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.card:hover {
-    border-color: var(--highlight-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(180, 251, 79, 0.1);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.card-title {
-    color: #f0f6fc;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.card-icon {
-    color: var(--highlight-bg);
-    font-size: 20px;
-}
-
-.card-value {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--highlight-bg);
-    margin-bottom: 10px;
-}
-
-.card-subtitle {
-    color: var(--text-color-secondary);
-    font-size: 14px;
-}
-
-/* Tables, Forms, Modals, etc. (incluídos aqui para unificar os estilos) */
+/* Tabelas, Formulários, etc. */
 .table-container {
     background: linear-gradient(135deg, var(--surface-color) 0%, #1c2128 100%);
     border: 1px solid var(--border-color);
@@ -392,40 +357,22 @@ tr:hover {
     }
     
     .sidebar {
-        width: 100%;
-        height: 60px;
-        padding: 0;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        overflow: hidden;
+        width: 280px;
+        position: fixed;
+        top: 0;
+        left: -280px; /* Esconde a sidebar por padrão */
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
     }
 
-    .logo {
-        padding: 0 20px;
-        margin: 0;
-        border: none;
-        flex: 1;
-        text-align: left;
-    }
-
-    .logo a.logo-link {
-        justify-content: flex-start;
-    }
-
-    .logo .project-name {
-        display: none;
-    }
-
-    #sidebar-menu {
-        display: none; /* Menu da sidebar não aparece no mobile */
+    .sidebar.active {
+        left: 0; /* Exibe a sidebar quando a classe 'active' é adicionada */
     }
 
     .main-content {
         width: 100%;
-        padding-top: 0;
+        padding-left: 0;
     }
     
     .header {
@@ -433,8 +380,12 @@ tr:hover {
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 1000;
+        z-index: 950;
         padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: block;
     }
     
     .header h2 {
@@ -454,8 +405,35 @@ tr:hover {
     .content {
         padding: 20px;
     }
+}
 
-    .dashboard-grid {
-        grid-template-columns: 1fr;
+@media (min-width: 768px) {
+    .main-content {
+        padding-left: 280px;
+        transition: padding-left 0.3s ease-in-out;
+    }
+
+    .sidebar {
+        left: 0;
+        position: fixed;
+        transition: width 0.3s ease-in-out;
+    }
+
+    .sidebar.hidden {
+        width: 80px;
+    }
+
+    .sidebar.hidden .nav-group-title,
+    .sidebar.hidden .project-name,
+    .sidebar.hidden .nav-item span {
+        display: none;
+    }
+
+    .sidebar.hidden .nav-item {
+        justify-content: center;
+        padding: 12px;
+    }
+    .sidebar.hidden .logo {
+        border-bottom: none;
     }
 }

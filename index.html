@@ -3,96 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DELFIA AtIAS - Template</title>
-
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/typography.css">
-  <link rel="stylesheet" href="css/dark-theme.css">
+  <title>DELFIA AtIAS - Home</title>
+  
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-1-2">
-          <h2>DELFIA AtIAS</h2>
-        </div>
-        <div class="col-1-2" style="text-align: right;">
-          <nav>
-            <a href="#">Dashboard</a>
-            <a href="#">Módulos</a>
-            <a href="#">Sair</a>
-          </nav>
-        </div>
-      </div>
+  <aside class="sidebar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="img/logo.png" alt="DELFIA AtIAS Logo">
+      </a>
     </div>
+    <nav class="categories" id="sidebar-menu">
+      </nav>
+  </aside>
+
+  <header class="main-header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="img/logo.png" alt="DELFIA AtIAS Logo">
+      </a>
+    </div>
+    <div class="hamburger-menu">
+      <div></div><div></div><div></div>
+    </div>
+    <nav class="mobile-nav" id="mobile-menu">
+      </nav>
   </header>
-  <main class="container">
-    <h1 class="mb-2">Dashboard Inicial</h1>
 
-    <div class="row mb-2">
-      <div class="col-1-4">
-        <div class="card p-2">
-          <h3>Estoque Total</h3>
-          <p>125.000 itens</p>
-        </div>
-      </div>
-      <div class="col-1-4">
-        <div class="card p-2">
-          <h3>Novas Entradas</h3>
-          <p>500 itens hoje</p>
-        </div>
-      </div>
-      <div class="col-1-4">
-        <div class="card p-2">
-          <h3>Movimentações</h3>
-          <p>250 movimentações</p>
-        </div>
-      </div>
-      <div class="col-1-4">
-        <div class="card p-2">
-          <h3>Alertas</h3>
-          <p>2 alertas críticos</p>
-        </div>
-      </div>
-    </div>
+  <main class="content">
+    <h1>Bem-vindo ao DELFIA AtIAS</h1>
+    <p>Selecione uma categoria para começar a navegar pelas páginas.</p>
 
-    <div class="row">
-      <div class="col-1-2">
-        <div class="card">
-          <div class="card-header">
-            <h3>Últimas Movimentações</h3>
-          </div>
-          <div class="card-body">
-            <ul>
-              <li>Palete #P123 movido para A12</li>
-              <li>Caixa #C456 entrada na doca 3</li>
-            </ul>
-          </div>
-        </div>
+    <div class="row" id="categories-container">
       </div>
-      <div class="col-1-2">
-        <div class="card">
-          <div class="card-header">
-            <h3>Ações Rápidas</h3>
-          </div>
-          <div class="card-body">
-            <a href="#" class="btn btn-primary">Registrar Entrada</a>
-            <a href="#" class="btn btn-primary">Iniciar Triagem</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </main>
-  <footer>
-    <div class="container">
-      <p style="text-align: center; color: var(--text-color-secondary); padding: 1rem 0;">
-        DELFIA AtIAS - 2025
-      </p>
-    </div>
+  
+  <footer class="main-footer">
+    <p>Usuário Logado: João da Silva</p>
   </footer>
-  </body>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>

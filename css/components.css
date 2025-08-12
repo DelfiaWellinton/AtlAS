@@ -1,37 +1,30 @@
+/* components.css */
+
 .btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: center;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--highlight-bg);
+  color: var(--highlight-text);
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.btn-primary {
-  color: var(--background-color);
-  background-color: var(--highlight-color);
-  border-color: var(--highlight-color);
-}
-
-.btn-primary:hover {
-  filter: brightness(0.9);
+.btn:hover {
+  background-color: #9cd444; /* Variação do verde para hover */
 }
 
 .card {
   background-color: var(--surface-color);
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.card-header {
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.card-body {
+  border-radius: var(--border-radius);
   padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  fill: var(--icon-color);
 }

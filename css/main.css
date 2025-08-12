@@ -1,0 +1,47 @@
+/* main.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  /* Cores */
+  --background-color: #1a1a1a;
+  --surface-color: #2b2b2b;
+  --text-color-primary: #ffffff;
+  --text-color-secondary: #aaaaaa;
+  
+  /* Cores de destaque para o tema escuro */
+  --highlight-bg: #b4fb4f; /* Verde limão com alta saturação para fundo */
+  --highlight-text: #000000; /* Texto preto para contrastar com o verde limão */
+
+  /* Cores de ícones */
+  --icon-color: #ffffff;
+  --icon-hover-color: var(--highlight-bg);
+
+  /* Fontes */
+  --font-family-sans: 'Roboto', sans-serif;
+  --font-size-base: 1rem;
+  
+  /* Cantos Arredondados */
+  --border-radius: 8px;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--background-color);
+  color: var(--text-color-primary);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color-primary);
+}
+
+/* Estilo para o Logo */
+.logo img {
+  width: auto;
+  height: 40px; /* Ajuste a altura conforme a necessidade */
+  display: block;
+}

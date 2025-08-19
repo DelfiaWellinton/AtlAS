@@ -3,100 +3,45 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AtlAS — Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-
-  <!-- Reset primeiro -->
-  <link rel="stylesheet" href="css/reset.css">
-  
-  <!-- Estrutura básica -->
-  <link rel="stylesheet" href="css/layout.css">
-  
-  <!-- Tipografia -->
-  <link rel="stylesheet" href="css/typography.css">
-  
-  <!-- Componentes reutilizáveis -->
-  <link rel="stylesheet" href="css/components.css">
-  
-  <!-- Dashboard -->
-  <link rel="stylesheet" href="css/dashboard.css">
-  
-  <!-- Estilo principal (cores globais, ajustes) -->
-  <link rel="stylesheet" href="css/style.css">
-  
-  <!-- Tema escuro opcional -->
-  <link rel="stylesheet" href="css/dark-theme.css">
-  
-  <!-- Centralizador (se for usado como no protótipo) -->
+  <title>AtlAS - Dashboard</title>
   <link rel="stylesheet" href="css/main.css">
-
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar" id="sidebar">
-      <div class="brand">
-        <img src="img/logo.png" alt="AtlAS"/>
-        <span>AtlAS</span>
-      </div>
-      <nav id="sidebar-menu"></nav>
-      <div class="sidebar-footer">
-        <button id="logout-btn" class="btn btn-ghost">Sair</button>
-      </div>
-    </aside>
-
-    <div class="content">
-      <header class="header">
-        <button class="burger" id="burger" aria-label="Menu"></button>
-        <h1 class="page-title">Dashboard</h1>
-        <div class="spacer"></div>
-        <div id="user-chip" class="user-chip"></div>
-      </header>
-
-      <main class="main">
-        <section class="cards-grid">
-          <!-- Cards simples do painel -->
-          <article class="card">
-            <h3>Recebimentos Pendentes</h3>
-            <p class="muted">Aguardando aprovação</p>
-            <div id="kpi-recebimentos" class="kpi">—</div>
-          </article>
-
-          <article class="card">
-            <h3>Movimentações Pendentes</h3>
-            <p class="muted">Aguardando aprovação</p>
-            <div id="kpi-movimentacoes" class="kpi">—</div>
-          </article>
-
-          <article class="card">
-            <h3>Caixas Ativas</h3>
-            <p class="muted">Em processamento</p>
-            <div id="kpi-caixas" class="kpi">—</div>
-          </article>
-        </section>
-      </main>
+  <header class="header">
+    <div class="logo">
+      <img src="img/logo.png" alt="AtlAS Logo">
+      <h1>AtlAS</h1>
     </div>
-  </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="recebimentos.html">Recebimentos</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <script src="js/api.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    // KPIs básicos (pendentes)
-    (async function loadKpis() {
-      await requireAuth(); // garante sessão
-      const [rec, mov] = await Promise.all([
-        apiGet('get_recebimentos', { status: 'pendente' }),
-        apiGet('get_movimentacoes', { status: 'pendente' })
-      ]);
-      document.getElementById('kpi-recebimentos').textContent = rec?.data?.length ?? 0;
-      document.getElementById('kpi-movimentacoes').textContent = mov?.data?.length ?? 0;
+  <main class="main-content">
+    <section class="dashboard">
+      <h2>Dashboard</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Total de Recebimentos</h3>
+          <p>123</p>
+        </div>
+        <div class="card">
+          <h3>Aguardando Aprovação</h3>
+          <p>12</p>
+        </div>
+        <div class="card">
+          <h3>Caixas em Estoque</h3>
+          <p>456</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      const caixas = await apiGet('get_caixas'); // se não existir, manter —
-      document.getElementById('kpi-caixas').textContent = caixas?.data?.length ?? '—';
-    })();
-  </script>
+  <footer class="footer">
+    <p>© 2025 AtlAS</p>
+  </footer>
 </body>
 </html>

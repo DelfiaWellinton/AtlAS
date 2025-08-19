@@ -135,3 +135,12 @@ button:hover {
   border-top: 2px solid #00ff88;
   margin-top: 2rem;
 }
+
+/* --- LOGO --- */
+.header img,
+.sidebar img,
+.navbar img {
+  max-height: 40px;
+  width: auto;
+  display: block;
+}

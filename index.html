@@ -23,19 +23,8 @@
   <main class="main-content">
     <section class="dashboard">
       <h2>Dashboard</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Total de Recebimentos</h3>
-          <p>123</p>
-        </div>
-        <div class="card">
-          <h3>Aguardando Aprovação</h3>
-          <p>12</p>
-        </div>
-        <div class="card">
-          <h3>Caixas em Estoque</h3>
-          <p>456</p>
-        </div>
+      <div class="cards" id="dashboard-cards">
+        <!-- Preenchido via API -->
       </div>
     </section>
   </main>
@@ -43,5 +32,26 @@
   <footer class="footer">
     <p>© 2025 AtlAS</p>
   </footer>
+
+  <script src="js/api.js"></script>
+  <script>
+    async function carregarDashboard() {
+      const resp = await apiGet("dashboard");
+
+      if (resp.ok) {
+        document.querySelector("#dashboard-cards").innerHTML = `
+          <div class="card"><h3>Total de Recebimentos</h3><p>${resp.data.total_recebimentos}</p></div>
+          <div class="card"><h3>Aguardando Aprovação</h3><p>${resp.data.pendentes}</p></div>
+          <div class="card"><h3>Caixas em Estoque</h3><p>${resp.data.caixas}</p></div>
+        `;
+      } else {
+        document.querySelector("#dashboard-cards").innerHTML = `
+          <div class="card"><h3>Erro</h3><p>${resp.error}</p></div>
+        `;
+      }
+    }
+
+    carregarDashboard();
+  </script>
 </body>
 </html>

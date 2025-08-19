@@ -23,7 +23,7 @@
   <main class="main-content">
     <section>
       <h2>Recebimentos</h2>
-      <form>
+      <form id="recebimento-form">
         <label for="projeto">Projeto:</label>
         <input type="text" id="projeto" required>
 
@@ -44,5 +44,27 @@
   <footer class="footer">
     <p>© 2025 AtlAS</p>
   </footer>
+
+  <script src="js/api.js"></script>
+  <script>
+    document.getElementById("recebimento-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const dados = {
+        projeto: document.getElementById("projeto").value,
+        data: document.getElementById("data").value,
+        galpao: document.getElementById("galpao").value,
+        operador: "Teste" // depois vamos substituir pelo token/login
+      };
+
+      const resp = await apiPost("recebimentos", dados);
+
+      if (resp.ok) {
+        alert("✅ Recebimento salvo!");
+      } else {
+        alert("❌ Erro: " + resp.error);
+      }
+    });
+  </script>
 </body>
 </html>

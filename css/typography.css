@@ -1,13 +1,40 @@
-/* css/typography.css */
+/* Importando a fonte Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 :root {
-  --text-color: #202124;
-  --muted-color: #5f6368;
+  --font-family-sans: 'Roboto', sans-serif;
+  --font-size-base: 1rem;
+  --h1-font-size: 2.5rem;
+  --h2-font-size: 2rem;
+  --h3-font-size: 1.75rem;
+  --h4-font-size: 1.5rem;
+  --h5-font-size: 1.25rem;
+  --h6-font-size: 1rem;
 }
+
 body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-color);
-  line-height: 1.5;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
 }
-h1,h2,h3 { font-weight: 700; }
-h4,h5,h6 { font-weight: 600; }
-p.muted, .muted { color: var(--muted-color); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-sans);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+h1 { font-size: var(--h1-font-size); }
+h2 { font-size: var(--h2-font-size); }
+h3 { font-size: var(--h3-font-size); }
+h4 { font-size: var(--h4-font-size); }
+h5 { font-size: var(--h5-font-size); }
+h6 { font-size: var(--h6-font-size); }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

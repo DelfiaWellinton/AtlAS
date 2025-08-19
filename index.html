@@ -2,56 +2,50 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AtlAS - Dashboard</title>
-  <link rel="stylesheet" href="css/main.css">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>AtlAS - Login</title>
+  <link rel="stylesheet" href="css/main.css"/>
 </head>
-<body>
-  <header class="header">
-    <div class="logo">
-      <img src="img/logo.png" alt="AtlAS Logo">
-      <h1>AtlAS</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Dashboard</a></li>
-        <li><a href="recebimentos.html">Recebimentos</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="login-page">
+  <div class="login-container">
+    <img src="img/logo.png" alt="AtlAS Logo" class="logo"/>
 
-  <main class="main-content">
-    <section class="dashboard">
-      <h2>Dashboard</h2>
-      <div class="cards" id="dashboard-cards">
-        <!-- Preenchido via API -->
+    <h2>Acessar o AtlAS</h2>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="token">Token de Acesso</label>
+        <input id="token" name="token" type="password" placeholder="Digite seu token" required autofocus>
       </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© 2025 AtlAS</p>
-  </footer>
+      <button type="submit" class="btn">Entrar</button>
+      <p id="login-error" class="error-msg" style="display:none;">Token inválido</p>
+    </form>
+  </div>
 
   <script src="js/api.js"></script>
   <script>
-    async function carregarDashboard() {
-      const resp = await apiGet("dashboard");
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const token = document.getElementById("token").value.trim();
+      const errorMsg = document.getElementById("login-error");
 
-      if (resp.ok) {
-        document.querySelector("#dashboard-cards").innerHTML = `
-          <div class="card"><h3>Total de Recebimentos</h3><p>${resp.data.total_recebimentos}</p></div>
-          <div class="card"><h3>Aguardando Aprovação</h3><p>${resp.data.pendentes}</p></div>
-          <div class="card"><h3>Caixas em Estoque</h3><p>${resp.data.caixas}</p></div>
-        `;
-      } else {
-        document.querySelector("#dashboard-cards").innerHTML = `
-          <div class="card"><h3>Erro</h3><p>${resp.error}</p></div>
-        `;
+      try {
+        const res = await API.login(token);
+        if (res.ok) {
+          // salvar no localStorage
+          localStorage.setItem("token", token);
+          localStorage.setItem("user", JSON.stringify(res.user));
+
+          // redirecionar para o dashboard (template.html)
+          window.location.href = "template.html";
+        } else {
+          errorMsg.style.display = "block";
+        }
+      } catch (err) {
+        console.error("Erro no login:", err);
+        errorMsg.style.display = "block";
       }
-    }
-
-    carregarDashboard();
+    });
   </script>
 </body>
 </html>

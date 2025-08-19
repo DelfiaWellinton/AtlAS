@@ -1,131 +1,79 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DELFIA AtlAS - Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AtlAS — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar" id="sidebar">
-            <div class="logo">
-                <a href="#" class="logo-link">
-                    <img src="img/logo.png" alt="DELFIA AtlAS Logo">
-                    <h2 class="project-name">AtlAS</h2>
-                </a>
-            </div>
-            
-            <div id="sidebar-menu">
-                </div>
-        </div>
-        
-        <div class="main-content">
-            <div class="header">
-                <div class="header-left">
-                    <button class="menu-toggle" id="menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <h2 id="page-title">Dashboard</h2>
-                </div>
-                <div class="user-info">
-                    <div class="user-avatar">A</div>
-                    <span>Admin Master</span>
-                </div>
-            </div>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img src="img/logo.png" alt="AtlAS"/>
+        <span>AtlAS</span>
+      </div>
+      <nav id="sidebar-menu"></nav>
+      <div class="sidebar-footer">
+        <button id="logout-btn" class="btn btn-ghost">Sair</button>
+      </div>
+    </aside>
 
-            <div class="content">
-                <div class="dashboard-grid">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Total de Produtos</div>
-                            <i class="fas fa-box card-icon"></i>
-                        </div>
-                        <div class="card-value">1,248</div>
-                        <div class="card-subtitle">+12% desde o último mês</div>
-                    </div>
+    <div class="content">
+      <header class="header">
+        <button class="burger" id="burger" aria-label="Menu"></button>
+        <h1 class="page-title">Dashboard</h1>
+        <div class="spacer"></div>
+        <div id="user-chip" class="user-chip"></div>
+      </header>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Paletes Ativos</div>
-                            <i class="fas fa-pallet card-icon"></i>
-                        </div>
-                        <div class="card-value">89</div>
-                        <div class="card-subtitle">Em diferentes posições</div>
-                    </div>
+      <main class="main">
+        <section class="cards-grid">
+          <!-- Cards simples do painel -->
+          <article class="card">
+            <h3>Recebimentos Pendentes</h3>
+            <p class="muted">Aguardando aprovação</p>
+            <div id="kpi-recebimentos" class="kpi">—</div>
+          </article>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Movimentações Hoje</div>
-                            <i class="fas fa-exchange-alt card-icon"></i>
-                        </div>
-                        <div class="card-value">23</div>
-                        <div class="card-subtitle">Entrada: 15 | Saída: 8</div>
-                    </div>
+          <article class="card">
+            <h3>Movimentações Pendentes</h3>
+            <p class="muted">Aguardando aprovação</p>
+            <div id="kpi-movimentacoes" class="kpi">—</div>
+          </article>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Triagens Pendentes</div>
-                            <i class="fas fa-clock card-icon"></i>
-                        </div>
-                        <div class="card-value">7</div>
-                        <div class="card-subtitle">Aguardando análise</div>
-                    </div>
-                </div>
-
-                <div class="table-container">
-                    <div class="table-header">
-                        <div class="table-title">Movimentações Recentes</div>
-                        <button class="btn btn-secondary">Ver Todas</button>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Data/Hora</th>
-                                <th>Tipo</th>
-                                <th>Item</th>
-                                <th>Origem</th>
-                                <th>Destino</th>
-                                <th>Responsável</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>12/12/2024 14:30</td>
-                                <td><span class="status-badge status-active">Entrada</span></td>
-                                <td>PAL-001234</td>
-                                <td>-</td>
-                                <td>A1-02-15</td>
-                                <td>João Silva</td>
-                            </tr>
-                            <tr>
-                                <td>12/12/2024 13:45</td>
-                                <td><span class="status-badge status-pending">Movimentação</span></td>
-                                <td>PAL-001230</td>
-                                <td>A1-01-10</td>
-                                <td>B2-03-08</td>
-                                <td>Maria Santos</td>
-                            </tr>
-                            <tr>
-                                <td>12/12/2024 12:15</td>
-                                <td><span class="status-badge status-inactive">Saída</span></td>
-                                <td>PAL-001225</td>
-                                <td>C3-01-05</td>
-                                <td>-</td>
-                                <td>Pedro Costa</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+          <article class="card">
+            <h3>Caixas Ativas</h3>
+            <p class="muted">Em processamento</p>
+            <div id="kpi-caixas" class="kpi">—</div>
+          </article>
+        </section>
+      </main>
     </div>
-    
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // KPIs básicos (pendentes)
+    (async function loadKpis() {
+      await requireAuth(); // garante sessão
+      const [rec, mov] = await Promise.all([
+        apiGet('get_recebimentos', { status: 'pendente' }),
+        apiGet('get_movimentacoes', { status: 'pendente' })
+      ]);
+      document.getElementById('kpi-recebimentos').textContent = rec?.data?.length ?? 0;
+      document.getElementById('kpi-movimentacoes').textContent = mov?.data?.length ?? 0;
+
+      const caixas = await apiGet('get_caixas'); // se não existir, manter —
+      document.getElementById('kpi-caixas').textContent = caixas?.data?.length ?? '—';
+    })();
+  </script>
 </body>
 </html>

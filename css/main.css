@@ -1,63 +1,10 @@
-/* main.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-:root {
-    /* Cores */
-    --background-color: #0d1117;
-    --surface-color: #161b22;
-    --border-color: #30363d;
-    
-    --text-color-primary: #c9d1d9;
-    --text-color-secondary: #8b949e;
-    
-    --highlight-bg: #b4fb4f;
-    --highlight-text: #0d1117;
-
-    /* Fontes */
-    --font-family-sans: 'Roboto', sans-serif;
-    --font-size-base: 1rem;
-    
-    /* Cantos Arredondados */
-    --border-radius: 8px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-family-sans);
-    background-color: var(--background-color);
-    color: var(--text-color-primary);
-    height: 100vh;
-    overflow: hidden;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* Estilo para o Logo e Nome do Projeto */
-.logo {
-    text-align: center;
-    padding: 0 20px 30px;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 30px;
-}
-
-.logo a.logo-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.logo .project-name {
-    color: var(--highlight-bg);
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
-}
+/* css/main.css */
+/* Importa todos os estilos na ordem correta */
+@import url("reset.css");
+@import url("typography.css");
+@import url("style.css");
+@import url("layout.css");
+@import url("components.css");
+@import url("dashboard.css");
+/* Tema escuro (opcional) */
+/* @import url("dark-theme.css"); */

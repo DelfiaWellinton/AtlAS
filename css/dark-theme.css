@@ -1,19 +1,13 @@
-
+/* css/dark-theme.css */
 :root {
-  /* Cores do tema escuro */
-  --background-color: #121212;
-  --surface-color: #1e1e1e;
-  --text-color-primary: #ffffff;
-  --text-color-secondary: #a0a0a0;
-  --highlight-color: #b4fb4f; /* Cor de destaque verde  */
-  --border-color: #383838;
+  --bg: #0f1115;
+  --card: #151820;
+  --line: #232735;
+  --text-color: #e6e6e6;
 }
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color-primary);
-}
-
-a {
-  color: var(--highlight-color);
-}
+body { background: var(--bg); color: var(--text-color); }
+.menu-link:hover { background: #1b2030; }
+.menu-link.active { background: #111827; color: #a1c0ff; }
+.header, .sidebar, .card { background: var(--card); border-color: var(--line); }
+.btn-ghost { background: var(--card); border-color: var(--line); color: var(--text-color); }
+.table thead th { background: #10131b; }

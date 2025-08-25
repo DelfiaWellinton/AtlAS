@@ -1,40 +1,16 @@
-# React Component Export
+# HTML Export
 
-This ZIP file contains the exported React component from your Hatch canvas.
+This ZIP file contains the exported HTML content from your Hatch canvas.
 
-## Files:
-- component.jsx: The main React component source code
-- component.js: The compiled/executable JavaScript version
-- index.html: Ready-to-run HTML file with fallback inline code and data
-- storedState.json: Initial state data
+## What's Inside:
+- index.html: Your main HTML file. Open this to view your project.
 
 
-## Quick Start:
-1. **Immediate Preview**:
-   - **File mode**: Double-click `index.html` - works locally with file:// URLs!
-   - **Server mode**: Serve from a local web server for cleaner file separation:
-     - `python -m http.server 8000`
-     - `npx serve .`
-     - `php -S localhost:8000`
+## How to Use It:
+1. Open index.html in a web browser. Use a local web server for best results.
+2. Upload your files to a hosting service if you're planning to share them online.
 
-2. **Development Setup**:
+## Sharing your Work
+Share the entire contents of the ZIP file including the assets folder and its content to preserve images and formatting. Sharing just the index.html file will break the connection to your images.
 
-## Usage:
-```jsx
-import Component from './component';
-
-function App() {
-  return <Component />;
-}
-```
-
-## Hatch Runtime Features:
-The exported component includes support for Hatch's `useStoredState` hook:
-- `useStoredState(key, defaultValue)` - Persistent state storage using localStorage
-- Loads external files when served from a web server
-- Falls back to inline data for file:// URLs
-- State persists across browser sessions
-
-The `index.html` file provides a complete Hatch-compatible runtime environment that works both when served from a web server (using external files) and when opened directly as file:// URLs (using inline fallbacks).
-
-Generated on: 25/08/2025, 13:31:25
+Generated on: 25/08/2025, 13:51:03
